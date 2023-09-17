@@ -1,0 +1,164 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    //make prices more easily and immediately understandable
+    public decimal Price { get; set; }
+    public int Supply { get; set; }
+    public int CategoryId { get; set; }
+}
+
+class ProductCategory
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int ParentCategoryId { get; set; }
+}
+ 
+class Program
+{
+//store instances in a list that can be accessed by any class
+
+    static List<Product> products = new List<Product>();
+    //list of products
+    static List<ProductCategory> productCategory = new List<ProductCategory>();
+    //list of product group
+    static int productIdCounter = 1;
+    static int productCategoryIdCounter = 1;
+   //variable to determine new product id and product group id
+    static void Main()
+    {
+        while (true)
+        {
+            Console.WriteLine("صفحه اصلی");
+            Console.WriteLine("کالا");
+            Console.WriteLine("گروه کالا");
+            Console.WriteLine("افزایش موجودی");
+            Console.WriteLine("کاهش موجودی");
+            Console.WriteLine("گزارش کالا");
+            Console.WriteLine("exit");
+
+            string click = Console.ReadLine();
+
+            switch (click)
+            {
+                case "1":
+                    ProductMenu();
+                    break;
+                case "2":
+                    ProductCategoryMenu();
+                    break;
+                case "3":
+                    AddSupply();
+                    break;
+                case "4":
+                    ReduceSupply();
+                    break;
+                case "5":
+                    ListProducts();
+                    break;
+                case "6":
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("error.click another option");
+                    break;
+            }
+        }
+    }
+
+    static void ProductMenu()
+    {
+        while (true)
+        {
+            Console.WriteLine("منوی کالا:");
+            Console.WriteLine(" ثبت کالا");
+            Console.WriteLine(" نمایش لیست کالاها");
+            Console.WriteLine("جستجو در لیست کالا با استفاده از نام کالا");
+            Console.WriteLine("ویرایش کالا");
+            Console.WriteLine("حذف کالا");
+            Console.WriteLine("صفحه قبل");
+
+            string click = Console.ReadLine();
+
+            switch (click)
+            {
+                case "1":
+                    AddProduct();
+                    break;
+                case "2":
+                    ListProducts();
+                    break;
+                case "3":
+                    SearchProductByName();
+                    break;
+                case "4":
+                    EditProduct();
+                    break;
+                case "5":
+                    DeleteProduct();
+                    break;
+                case "6":
+                    return;
+                default:
+                    Console.WriteLine("error.click another option");
+                    break;
+            }
+        }
+    }
+
+    static void ProductCategoryMenu()
+    {
+        while (true)
+        {
+            Console.WriteLine("منوی گروه کالا:");
+            Console.WriteLine("افزودن گروه کالا");
+            Console.WriteLine("لیست گروه کالا");
+            Console.WriteLine("ویرایش گروه کالا");
+            Console.WriteLine("حذف گروه کالا");
+            Console.WriteLine("صفحه قبل");
+
+            string click = Console.ReadLine();
+            switch (click)      
+            {               
+               case "1":  
+                  AddProductCategory();      
+                  break;            
+               case "2":                 
+                  ListProductCategories();     
+                  break;              
+              case "3":        
+                  EditProductCategory();  
+                  break;              
+              case "4":               
+                  DeleteProductCateory();    
+                  break;              
+              case "5":           
+                  return;           
+              default:               
+                  Console.WriteLine("error.please click another option");     
+                  break;            
+                  }       
+                 }
+             }
+
+           static void ProductMenu()   
+           {      
+          
+           }
+    static void ProductCategoryMenu()    {   
+     
+    }
+    static void AddSupply()    {   
+   
+    }
+    static void ReduceSupply()    {       
+   
+    }
+    static void ListProducts()    {  
+   
+    }}
